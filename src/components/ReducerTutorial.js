@@ -18,8 +18,8 @@ const ReducerTutorial = () => {
   //when an event is triggering more than one action, consider useReducer
 
   return (
-    <div>
-      <h1>Reducer testing!</h1>
+    <div style={{ backgroundColor: "lightyellow" }}>
+      <h1>useReducer!</h1>
       <hr></hr>
       <div>
         Counter: {state.count}

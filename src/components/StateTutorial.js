@@ -14,8 +14,8 @@ const StateTutorial = () => {
   };
 
   return (
-    <div>
-      <h1>State testing!</h1>
+    <div style={{ backgroundColor: "lightpink" }}>
+      <h1>useState!</h1>
       <hr></hr>
       <div>
         Counter: {counter}
