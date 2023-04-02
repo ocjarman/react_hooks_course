@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "./ContextTutorial";
 
 const User = () => {
-  return <div></div>;
+  const { username } = useContext(AppContext);
+  return (
+    <div>
+      <h2>User: {username}</h2>
+    </div>
+  );
 };
 
 export default User;

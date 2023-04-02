@@ -1,14 +1,18 @@
-import React, { useRef } from "react";
+import React, { useState, createContext } from "react";
+import Login from "./Login";
+import User from "./User";
+
+//context is a collection of information/states you want to be able to access inside of components
+export const AppContext = createContext(null);
 
 const ContextTutorial = () => {
-  //YOU CAN ALTER THE LOCAL STATE OF A CHILD COMPONENT USING AN IMPERATIVE HANDLE & USEREF
+  const [username, setUsername] = useState("");
   return (
     <div style={{ backgroundColor: "limegreen" }}>
       <h1>useContextTutorial!</h1>
-      <hr></hr>
-      <div>
-        <br></br>
-      </div>
+      <AppContext.Provider value={{ username, setUsername }}>
+        <Login /> <User />
+      </AppContext.Provider>
     </div>
   );
 };

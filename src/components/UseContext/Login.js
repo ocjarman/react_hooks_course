@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "./ContextTutorial";
 
 const Login = () => {
-  return <div></div>;
+  const { setUsername } = useContext(AppContext);
+  return (
+    <div>
+      <input
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+      ></input>
+    </div>
+  );
 };
 
 export default Login;
