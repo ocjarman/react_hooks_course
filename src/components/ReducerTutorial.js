@@ -23,6 +23,7 @@ const ReducerTutorial = () => {
       <hr></hr>
       <div>
         Counter: {state.count}
+        <br></br>
         <button
           onClick={() => {
             dispatch({ type: "INCREMENT" });
@@ -31,6 +32,10 @@ const ReducerTutorial = () => {
         >
           CHANGE BOTH STATES
         </button>
+      </div>
+      <hr></hr>
+
+      <div>
         <button
           onClick={() => {
             dispatch({ type: "toggleShowText" });
@@ -38,9 +43,9 @@ const ReducerTutorial = () => {
         >
           CHANGE SHOW TEXT ONLY
         </button>
+        <br></br>
+        {state.showText && <p>displaying text!!</p>}
       </div>
-      <hr></hr>
-      <div>{state.showText && <p>displaying text!!</p>}</div>
       <hr></hr>
     </div>
   );

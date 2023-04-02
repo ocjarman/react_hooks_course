@@ -1,12 +1,35 @@
 import React from "react";
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const EffectTutorial = () => {
+  const [data, setData] = useState("");
+  const [testCounter, setTestCounter] = useState(0);
+
+  useEffect(() => {
+    console.log("hello world");
+    axios
+      .get("https://jsonplaceholder.typicode.com/comments")
+      .then((response) => setData(response.data[0].email));
+    console.log("api was called");
+    //pasing test counter means the useEffect hook will run every time the testCounter is updated
+    //always pass empty array unless you want the hook to run every time anything rerenders
+  }, [testCounter]);
+
+  const increment = () => {
+    setTestCounter(testCounter + 1);
+  };
   return (
     <div>
       <h1>useEffect testing!</h1>
       <hr></hr>
-      <div></div>
+      <div>Data Collected: {data}</div>
+      <br></br>
+      <div>
+        Test Counter: {testCounter}
+        <br></br>
+        <button onClick={increment}>Increment Test Counter</button>
+      </div>
       <hr></hr>
       <hr></hr>
     </div>
