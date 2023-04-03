@@ -9,7 +9,7 @@ const ContextTutorial = () => {
   const [username, setUsername] = useState("");
   return (
     <div style={{ backgroundColor: "limegreen" }}>
-      <h1>useContextTutorial!</h1>
+      <h1>useContext!</h1>
       <AppContext.Provider value={{ username, setUsername }}>
         <Login /> <User />
       </AppContext.Provider>
