@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 
 const MemoTutorial = () => {
   const [data, setData] = useState(null);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     axios
@@ -10,6 +11,8 @@ const MemoTutorial = () => {
       .then((response) => setData(response.data));
   }, []);
 
+  //this fxn will be recreated every rerender of this component --> very inefficient!
+  //when you have large computations on the frontend, use useMemo
   const findLongestName = (comments) => {
     if (!comments) return null;
     let longestName = "";
@@ -20,13 +23,19 @@ const MemoTutorial = () => {
       }
     }
     console.log("THIS WAS COMPUTED");
+    return longestName;
   };
 
-  findLongestName();
+  const increment = () => {
+    setCount(count + 1);
+  };
 
   return (
     <div style={{ backgroundColor: "hotpink" }}>
       <h1>useMemoTutorial!</h1>
+      <div>{findLongestName(data)}</div>
+      Count: {count}
+      <button onClick={increment}>MORE!</button>
     </div>
   );
 };
