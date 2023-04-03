@@ -30,10 +30,12 @@ const MemoTutorial = () => {
     setCount(count + 1);
   };
 
+  //this will ONLY RUN when a variable/state in the dependency array changes!
+  const getLongestName = useMemo(() => findLongestName(data), [data]);
   return (
     <div style={{ backgroundColor: "hotpink" }}>
       <h1>useMemoTutorial!</h1>
-      <div>{findLongestName(data)}</div>
+      <div>{getLongestName}</div>
       Count: {count}
       <button onClick={increment}>MORE!</button>
     </div>
