@@ -6,11 +6,12 @@ import RefTutorial from "./components/RefTutorial";
 import LayoutEffect from "./components/LayoutEffect";
 import ImperativeHandle from "./components/ImperativeHandle";
 import ContextTutorial from "./components/UseContext/ContextTutorial";
-
+import MemoTutorial from "./components/UseMemo/MemoTutorial";
 function App() {
   return (
     <div className="App">
       <StateTutorial />
+      <MemoTutorial />
       <ContextTutorial />
       <ImperativeHandle />
       <LayoutEffect />
